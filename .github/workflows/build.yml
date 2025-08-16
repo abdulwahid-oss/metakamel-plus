@@ -1,0 +1,22 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: 🔽 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🛠 Run build script
+        shell: pwsh
+        run: ./build.ps1
+
+      - name: ✅ Run test script
+        shell: pwsh
+        run: ./test.ps1
